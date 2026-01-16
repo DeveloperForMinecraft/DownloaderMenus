@@ -24,7 +24,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod(value = "DownloadMenus")
+@Mod(value = "downloadmenus")
 public class Main {
     private static String openCommand = "error";
 
@@ -49,11 +49,11 @@ public class Main {
             ChestScreen chestScreen = (ChestScreen) Minecraft.getInstance().screen;
             event.addWidget(new Button(
                     10, 8, 100, 20,
-                    new StringTextComponent("Скачать Меню"),
+                    new StringTextComponent("Г‘ГЄГ Г·Г ГІГј ГЊГҐГ­Гѕ"),
                     button -> {
                         if (Minecraft.getInstance().getCurrentServer() == null) {
                             Minecraft.getInstance().player.displayClientMessage(
-                                    new StringTextComponent("§cСкачивание меню доступно только на сервере"),
+                                    new StringTextComponent("В§cГ‘ГЄГ Г·ГЁГўГ Г­ГЁГҐ Г¬ГҐГ­Гѕ Г¤Г®Г±ГІГіГЇГ­Г® ГІГ®Г«ГјГЄГ® Г­Г  Г±ГҐГ°ГўГҐГ°ГҐ"),
                                     false
                             );
                             return;
@@ -123,12 +123,12 @@ public class Main {
                         }
 
                         Minecraft.getInstance().player.displayClientMessage(
-                                new StringTextComponent("§aГотово!"),
+                                new StringTextComponent("В§aГѓГ®ГІГ®ГўГ®!"),
                                 false
                         );
 
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(menuFile, false))) {
-                            writer.write("#By DecentMCDev\n#Спасибо за скачивание\nmenu_title: '" + MenuDownload.formatText(chestScreen.getTitle()) + "'\nopen_command: \n  - " + openCommand + "\nsize: " + (((ChestContainer) chestScreen.getMenu()).slots.size() - 37) + "\nregister_command: true\nitems:\n");
+                            writer.write("#By DecentMCDev\n#Г‘ГЇГ Г±ГЁГЎГ® Г§Г  Г±ГЄГ Г·ГЁГўГ Г­ГЁГҐ\nmenu_title: '" + MenuDownload.formatText(chestScreen.getTitle()) + "'\nopen_command: \n  - " + openCommand + "\nsize: " + (((ChestContainer) chestScreen.getMenu()).slots.size() - 37) + "\nregister_command: true\nitems:\n");
                             Iterator<Slot> slotIterator = ((ChestContainer) chestScreen.getMenu()).slots.iterator();
                             while (slotIterator.hasNext()) {
                                 Slot slot = slotIterator.next();
@@ -167,7 +167,7 @@ public class Main {
                                                         writer.write("    - '" + formattedLore + "'\n");
                                                     }
                                                 } catch (Exception e) {
-                                                    String simpleLore = loreLineJson.replace("§", "&");
+                                                    String simpleLore = loreLineJson.replace("В§", "&");
                                                     simpleLore = simpleLore.replace("'", "''");
                                                     writer.write("    - '" + simpleLore + "'\n");
                                                 }
@@ -197,7 +197,7 @@ public class Main {
                             }
 
                             Minecraft.getInstance().player.displayClientMessage(
-                                    new StringTextComponent("§aСкачанно в папку: Downloaded Menus/" + Minecraft.getInstance().getCurrentServer().ip + "/" + menuFile.getName()),
+                                    new StringTextComponent("В§aГ‘ГЄГ Г·Г Г­Г­Г® Гў ГЇГ ГЇГЄГі: Downloaded Menus/" + Minecraft.getInstance().getCurrentServer().ip + "/" + menuFile.getName()),
                                     false
                             );
                         } catch (IOException e) {
@@ -207,4 +207,5 @@ public class Main {
             ));
         }
     }
+
 }
