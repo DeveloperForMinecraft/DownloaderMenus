@@ -2,7 +2,7 @@ modLoader="javafml"
 loaderVersion="[36,)"
 license="Free to use"
 [[mods]]
-modId="DownloadMenus"
+modId="downloadmenus"
 version="1.4"
 displayName="DownloadMenus"
 logoFile="DecentMC.jpg" #I don't know why it's dont work
