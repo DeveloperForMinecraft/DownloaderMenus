@@ -3,34 +3,27 @@ loaderVersion="[36,)"
 license="Free to use"
 [[mods]]
 modId="downloadmenus"
-version="1.4"
+version="1.7.1"
 displayName="DownloadMenus"
-logoFile="DecentMC.jpg" #I don't know why it's dont work
+logoFile="studio.jpg"
 credits="Thanks for download DownloadMenus for GitHub"
-authors="Binance, DecentMCDev"
+authors="Binance, BitPick Studio"
 description='''
 This is a mod for downloading menus from servers for the DelexeMenus plugin.
 
 Thank you for downloading the mod, I would be glad if you leave a review.
 
-My GitHub: https://github.com/DecentMCDev
+My GitHub: https://github.com/DeveloperForMinecraft
 '''
 [[dependencies.DownloadMenus]]
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[36,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
     ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
 [[dependencies.DownloadMenus]]
     modId="minecraft"
     mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.16.5,1.17)"
     ordering="NONE"
     side="BOTH"

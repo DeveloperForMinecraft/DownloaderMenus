@@ -139,16 +139,18 @@ dependencies {
 
 }
 
+compileJava.options.encoding = 'UTF-8'
+
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {
     manifest {
         attributes([
-            "Specification-Title": "examplemod",
-            "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1", // We are version 1 of ourselves
+            "Specification-Title": "downlodermenus",
+            "Specification-Vendor": "downlodermenussareus",
+            "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
+            "Implementation-Vendor" :"downlodermenussareus",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -172,3 +174,21 @@ publishing {
         }
     }
 }
+
+task removeBom {
+    doLast {
+        def srcDir = file('src/main/java')
+        if (!srcDir.exists()) return
+        fileTree(dir: srcDir, include: '**/*.java').each { file ->
+            byte[] bytes = file.bytes
+            // Проверяем наличие BOM (EF BB BF)
+            if (bytes.length >= 3 && bytes[0] == (byte)0xEF && bytes[1] == (byte)0xBB && bytes[2] == (byte)0xBF) {
+                file.bytes = Arrays.copyOfRange(bytes, 3, bytes.length)
+                println "BOM удалён из ${file.relativePath}"
+            }
+        }
+    }
+}
+
+// Запускаем задачу перед компиляцией
+compileJava.dependsOn removeBom
