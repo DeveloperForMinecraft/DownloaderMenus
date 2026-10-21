@@ -10,10 +10,10 @@
     <br>
     <img src="https://img.shields.io/github/last-commit/DeveloperForMinecraft/DownloaderMenus" alt="GitHub last commit"/>
     <img src="https://img.shields.io/github/commit-activity/w/DeveloperForMinecraft/DownloaderMenus" alt="GitHub commit activity"/>
-    <img src="https://img.shields.io/github/contributors/DeveloperForMinecraft/DownloaderMenus" alt="GitHub contributors"/>
+    <img src="https://img.shields.io/github/contributors/DeveloperForMinecraft/DownloaderMenus?color=lyme" alt="GitHub contributors"/>
     <br>
     <img src="https://img.shields.io/github/languages/code-size/DeveloperForMinecraft/DownloaderMenus" alt="GitHub code size in bytes"/>
-    <img src="https://img.shields.io/github/endpoint?url=https://ghloc.vercel.app/api/DeveloperForMinecraft/DownloaderMenus/badge?filter=.java$&label=lines%20of%20code&color=blue" alt="GitHub lines of code"/>
+    <img src="https://img.shields.io/endpoint?url=https://ghloc.vercel.app/api/DeveloperForMinecraft/DownloaderMenus/badge?filter=.java$&label=lines%20of%20code&color=blue" alt="GitHub lines of code"/>
 </div>
 
 ## Features
