@@ -1,4 +1,4 @@
-package com.MenuDownloader;
+﻿package com.MenuDownloader;
 
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.Style;
@@ -22,13 +22,11 @@ public class MenuDownload {
 
     private static void appendStyle(StringBuilder builder, Style style) {
         if (style.getColor() != null) {
-            int colorValue = style.getColor().getValue();
-            String hexColor = String.format("%06X", colorValue & 0xFFFFFF);
-            String minecraftColorCode = convertHexToColorCode(hexColor);
-            if (minecraftColorCode != null) {
-                builder.append("&").append(minecraftColorCode);
+            String code = legacyColorCode(style.getColor().getValue());
+            if (code != null) {
+                builder.append('&').append(code);
             } else {
-                builder.append("&#").append(hexColor);
+                builder.append("&#").append(String.format("%06X", style.getColor().getValue() & 0xFFFFFF));
             }
         }
         if (style.isBold()) builder.append("&l");
@@ -38,25 +36,24 @@ public class MenuDownload {
         if (style.isObfuscated()) builder.append("&k");
     }
 
-    private static String convertHexToColorCode(String hexColor) {
-        hexColor = hexColor.replace("&#", "");
-        switch (hexColor.toUpperCase()) {
-            case "000000": return "0";
-            case "0000AA": return "1";
-            case "00AA00": return "2";
-            case "00AAAA": return "3";
-            case "AA0000": return "4";
-            case "AA00AA": return "5";
-            case "FFAA00": return "6";
-            case "AAAAAA": return "7";
-            case "555555": return "8";
-            case "5555FF": return "9";
-            case "55FF55": return "a";
-            case "55FFFF": return "b";
-            case "FF5555": return "c";
-            case "FF55FF": return "d";
-            case "FFFF55": return "e";
-            case "FFFFFF": return "f";
+    private static String legacyColorCode(int rgb) {
+        switch (rgb & 0xFFFFFF) {
+            case 0x000000: return "0";
+            case 0x0000AA: return "1";
+            case 0x00AA00: return "2";
+            case 0x00AAAA: return "3";
+            case 0xAA0000: return "4";
+            case 0xAA00AA: return "5";
+            case 0xFFAA00: return "6";
+            case 0xAAAAAA: return "7";
+            case 0x555555: return "8";
+            case 0x5555FF: return "9";
+            case 0x55FF55: return "a";
+            case 0x55FFFF: return "b";
+            case 0xFF5555: return "c";
+            case 0xFF55FF: return "d";
+            case 0xFFFF55: return "e";
+            case 0xFFFFFF: return "f";
             default: return null;
         }
     }

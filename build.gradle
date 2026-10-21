@@ -12,9 +12,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.0'
-group = 'com.yourname.modid' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'modid'
+version = '1.10.7'
+group = 'com.MenuDownloader'
+archivesBaseName = 'downloadmenus'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
@@ -184,7 +184,7 @@ task removeBom {
             // Проверяем наличие BOM (EF BB BF)
             if (bytes.length >= 3 && bytes[0] == (byte)0xEF && bytes[1] == (byte)0xBB && bytes[2] == (byte)0xBF) {
                 file.bytes = Arrays.copyOfRange(bytes, 3, bytes.length)
-                println "BOM удалён из ${file.relativePath}"
+                println "BOM удалён из ${file.absolutePath}"
             }
         }
     }

@@ -2,6 +2,6 @@ package com.MenuDownloader;
 
 public class Logger {
     public static void log(String message) {
-        System.out.println("PLUGIN: " + message);
+        System.out.println("ModDM: " + message);
     }
 }

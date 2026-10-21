@@ -3,11 +3,12 @@ loaderVersion="[36,)"
 license="Free to use"
 [[mods]]
 modId="downloadmenus"
-version="1.7.1"
+version="1.10.7"
 displayName="DownloadMenus"
+displayTest="IGNORE_ALL_VERSION"
 logoFile="studio.jpg"
 credits="Thanks for download DownloadMenus for GitHub"
-authors="Binance, BitPick Studio"
+authors="BitPick Studio"
 description='''
 This is a mod for downloading menus from servers for the DelexeMenus plugin.
 
@@ -15,15 +16,15 @@ Thank you for downloading the mod, I would be glad if you leave a review.
 
 My GitHub: https://github.com/DeveloperForMinecraft
 '''
-[[dependencies.DownloadMenus]]
+[[dependencies.downloadmenus]]
     modId="forge"
     mandatory=true
     versionRange="[36,)"
     ordering="NONE"
-    side="BOTH"
-[[dependencies.DownloadMenus]]
+    side="CLIENT"
+[[dependencies.downloadmenus]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5,1.17)"
     ordering="NONE"
-    side="BOTH"
+    side="CLIENT"
